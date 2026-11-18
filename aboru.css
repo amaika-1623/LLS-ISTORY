@@ -1,0 +1,112 @@
+/* CSS */
+/* Copyright geen teal #008080 */
+
+body, html {background: #58ACFA; margin: 0; padding: 0; font-family:  Verdana, Arial, Helvetica, sans-serif; }
+/*body, html {background: #7D9A26; margin: 0; padding: 0; font-family:  Verdana, Arial, Helvetica, sans-serif; }*/
+body{background-image: url("images/naila7.jpg");background-repeat:repeat-x;}body{background-image: url("images/naila7.jpg");background-repeat:repeat; center no-repeat;background-attachment:fixed;}
+
+
+/* Definitie van de masthead: logo en de navigatie */
+#container {width: 750px; margin-left: auto; margin-right: auto; position: relative;}
+/* #container {width: 750px; margin-left: 0; margin-right: auto; position: relative;} */
+#logo {float: left;}
+#navigatie {float: left; width: 570px; height: 80px; background: #6B4C25; margin: 0; padding: 0;}
+/*#navigatie {float: left; width: 570px; height: 80px; background: #7D9A26; margin: 0; padding: 0;}*/
+#navigatie ul {line-height: 0; margin: 0; padding: 0;} 
+#navigatie ul li {list-style: none; float: left; white-space: nowrap;  line-height: 20px; margin-top: 50px; padding-right: 10px;} 
+#navigatie ul li a {text-decoration: none; font-size: 12px; font-family: Verdana, Arial, Helvetica, sans-serif; font-weight:bold; color: #dedede;} 
+#navigatie ul li a:hover {color: #FFFFFF; border: 1px solid #FFFFFF; border-width: 1px 0; padding: 1px 0;} 
+
+/* Plaatsing van de paginatitel in de masthead */
+#titelbalk {float: left; width: 570px; height: 140px; background:  url("images/masthead.jpg") left top no-repeat;}
+#titelbalk h1 {margin: 60px 10px 20px 0; font: 1.2em bold Arial, Britannic Bold, sans-serif; color: #06445D;}
+/* Hier kan de titel worden beinvloed #titelbalk h1 {margin: 60px 10px 20px 0; font: 1.2em bold Arial, Helvetica, sans-serif; color: #668800;}*/
+
+
+/* Plaatsing van de feitelijke content */
+#main {margin: 0; padding: 0; width: 750px; background-image:  url("images/bg_main.jpg"); background-position: top left; background-repeat:repeat-y;}
+/* Balk aan de linkerzijde, bestemd voor logo, fotos van  150px breed en een onderschrift */
+.sidebarmenu p {font: 0.7em/1em normal Arial, Helvetica, sans-serif; color: #008080; margin: 0 15px 10px;}
+
+.sidebarmenu ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+font: bold 13px Verdana;
+width: 180px; /* Main Menu Item widths */
+border-bottom: 1px solid #ccc;
+}
+ 
+.sidebarmenu ul li{position: relative;}
+
+/* Top level menu links style */
+.sidebarmenu ul li a{
+display: block;
+overflow: auto; /*force hasLayout in IE7 */
+color: white;
+text-decoration: none;
+padding: 6px;
+border-bottom: 1px solid #778;
+border-right: 1px solid #778;
+}
+
+.sidebarmenu ul li a:link, .sidebarmenu ul li a:visited, .sidebarmenu ul li a:active{
+background-color: #7D9A26; /*background of tabs (default state)*/
+}
+
+
+.sidebarmenu ul li a:visited{color: white;}
+
+.sidebarmenu ul li a:hover{background-color: #6B4C25;}
+
+/*Sub level menu items */
+.sidebarmenu ul li ul{
+position: absolute;
+width: 170px; /*Sub Menu Items width */
+top: 0;
+visibility: hidden;
+}
+
+.sidebarmenu a.subfolderstyle{background: url("images/right.gif") no-repeat 97% 50%;}
+
+ 
+/* Holly Hack for IE \*/
+* html .sidebarmenu ul li { float: left; height: 1%; }
+* html .sidebarmenu ul li a { height: 1%; }
+/* End */
+
+
+
+/* Content, de plek voor alle teksten */
+#content {margin-top : -250px; margin-left: 200px; width: 505px; margin-bottom: 20px; background-image:url('images/Baileu2007-fade2.png'); background-position: center;
+; background-repeat:no-repeat;}
+#content h2 {font: 1.1em bold Arial, Helvetica, sans-serif; color: #06445D; text-align: right; padding-right: 10px; }
+/*#content h2 {font: 1.1em bold Arial, Helvetica, sans-serif; color: #668800; text-align: right; padding-right: 10px; }*/
+#content p, #content li, table {font: 0.9em/1.4em normal Arial, Helvetica, sans-serif; color: #666666;}
+#content p a {font: 1em/1.4em normal Arial, Helvetica, sans-serif; text-decoration:none; border-bottom: 1px dotted #7D9A26; color: #7D9A26;}
+#content p a:hover {background-color: #E0E0B6; color: #7DA926;}
+#content ul {margin-top: -0.5em;}
+
+#footer {margin-top: -20px; padding: 0; background: #7D9A26; }
+
+table th {width: 35%; font: 0.9em/1.4em normal Arial, Helvetica, sans-serif; text-align: left; color: #7D9A26; padding-left: 0px;}
+table td {width: 60%;}
+table td.tussenkop {width: 95%; background: url(images/bg-form.gif); background-position: top left; background-repeat: no-repeat; border: 1px solid #FFFFFF; border-top-width: 5px; border-bottom-width: 5px; font: 0.9em/1.4em normal Arial, Helvetica, sans-serif; color: #FFFFFF;}
+table td.toelichting {font: 0.8em/1.4em normal Arial, Helvetica, sans-serif; text-align: left; color: #7D9A26; padding: 2px 0 5px 0;}
+table td img.kaartje {border: 1px solid #7D9A26; margin-bottom: 10px;}
+table td.wegwijzer {vertical-align:top;}
+.diploma {width: 65%; margin-right: 2%;}
+.instituut {width: 15%;}
+.jaar {width: 18%;}
+form {border: 1px dotted #D8D8A1; padding: 5px;}
+form input, form textarea {font: 0.9em/1.4em normal Arial, Helvetica, sans-serif; border: 1px solid #7D9A26; background-color: #E0E0B6; margin-bottom: 5px;}
+form input:focus, form textarea:focus, form select:focus, form option:focus {background-color: #FFFFFF;}
+form select, form option {font: 0.9em/1.4em normal Arial, Helvetica, sans-serif; color: #666666; background-color: #E0E0B6;}
+form select {margin-bottom: 10px;}
+form label {margin-right: 10px;}
+form label input { vertical-align:bottom;}
+form input#button {display: block; margin-left: 35%; padding: 2px; background-image:url(images/bg-button.gif); background-position: 0 0; background-repeat: repeat-x;}
+
+/* Afbeelding en tekst om de pagina af te ronden */
+#footertext {width: 500px; margin: -1em 20px 10px 180px; font: 0.7em/1.1em normal Arial, Helvetica, sans-serif; color: white; text-align: center;}
+#footertext a {font: 1em/1.4em normal Arial, Helvetica, sans-serif; color: #DEDEDE; text-decoration:none; border-bottom: 1px dotted #DEDEDE;}
