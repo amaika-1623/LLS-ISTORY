@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<HTML>
+<HEAD>
+
+    <title>Diashow</title>
+    <script type="text/javascript" src="../../sound/playsound.js"></script>
+
+    <script language="JavaScript1.2" type="text/javascript">
+      var slides = new Array();
+
+        var slide = new Object();
+        slide.file = 'images/albums/naila/naila1.jpg';
+        slide.filter = 'Fade';
+        slide.header = '&nbsp;';
+                
+        slide.footer = 'Naila';
+        slide.sound = '';
+        slide.loop = true;
+        slides[0] = slide;
+
+        var slide = new Object();
+        slide.file = 'images/albums/naila/naila2.jpg';
+        slide.filter = 'Fade';
+        slide.header = '&nbsp;';
+                
+        slide.footer = 'Naila';
+        slide.sound = '';
+        slide.loop = true;
+        slides[1] = slide;
+
+        var slide = new Object();
+        slide.file = 'images/albums/naila/naila3.jpg';
+        slide.filter = 'Fade';
+        slide.header = '&nbsp;';
+                
+        slide.footer = 'Naila';
+        slide.sound = '';
+        slide.loop = true;
+        slides[2] = slide;
+
+        var slide = new Object();
+        slide.file = 'images/albums/naila/naila4.jpg';
+        slide.filter = 'Fade';
+        slide.header = '&nbsp;';
+                
+        slide.footer = 'Naila';
+        slide.sound = '';
+        slide.loop = true;
+        slides[3] = slide;
+
+        var slide = new Object();
+        slide.file = 'images/albums/naila/naila5.jpg';
+        slide.filter = 'Fade';
+        slide.header = '&nbsp;';
+                
+        slide.footer = 'Naila';
+        slide.sound = '';
+        slide.loop = true;
+        slides[4] = slide;
+
+        var slide = new Object();
+        slide.file = 'images/albums/naila/naila6.jpg';
+        slide.filter = 'Fade';
+        slide.header = '&nbsp;';
+                
+        slide.footer = 'Naila';
+        slide.sound = '';
+        slide.loop = true;
+        slides[5] = slide;
+
+        var slide = new Object();
+        slide.file = 'images/albums/naila/naila7.jpg';
+        slide.filter = 'Fade';
+        slide.header = '&nbsp;';
+                
+        slide.footer = 'Naila';
+        slide.sound = '';
+        slide.loop = true;
+        slides[6] = slide;
+
+        var slide = new Object();
+        slide.file = 'images/albums/naila/naila8.jpg';
+        slide.filter = 'Fade';
+        slide.header = '&nbsp;';
+                
+        slide.footer = 'Naila';
+        slide.sound = '';
+        slide.loop = true;
+        slides[7] = slide;
+
+ 
+      
+      
+      var stop = true;
+      var plapau = false;
+      var seconds_left = 3;
+      var show_seconds = 3;
+      var beenden = '801';
+    
+function getElement(id) {
+	var element = null;
+	if (document.getElementById) {
+		element = document.getElementById(id);
+	} else if (document.layers) {
+		eval('element=document.' + id);
+	} else {
+		eval('element=document.all.' + id);
+	}
+	return element;
+}
+
+var current_image = 0;
+
+var playingID;
+function playSlideSound(index) {
+	if (playingID) {
+		stopSound(playingID);
+		delete playingID;
+	}
+	if (slides[index].sound.length != 0) {
+		playingID = 'slide'+index;
+		playSound(slides[index].sound, playingID, slides[index].loop);
+	}
+}
+
+function init() {
+
+	imgCurrent = getElement('bild1');
+	imgPreload = getElement('bild2');
+
+	window.setTimeout('start()', 500);
+
+}
+
+function start() {
+	showCurrentImage(true);
+	do_show();
+}
+
+
+function showCurrentImage(withEffect) {
+  var header = getElement('ueberschrift');
+  var footer = getElement('unterschrift');
+  var counter = getElement('zaehler');
+  header.innerHTML = slides[current_image].header;
+  footer.innerHTML = slides[current_image].footer;
+  counter.innerHTML = (current_image+1) + '/' + slides.length;
+
+  imgCurrent.style.filter='progid:DXImageTransform.Microsoft.' + slides[current_image].filter;
+
+  if (withEffect && imgCurrent.filters && imgCurrent.filters[0]) {
+    imgCurrent.filters[0].Apply();
+  }
+
+  playSlideSound(current_image);
+  imgCurrent.src = slides[current_image].file;
+
+  if (withEffect && imgCurrent.filters && imgCurrent.filters[0]) {
+    imgCurrent.filters[0].Play()
+  }
+
+  var no = (current_image == slides.length-1) ? 0 : (current_image + 1);
+  imgPreload.src=slides[no].file;
+}
+
+function do_show() {
+  if (stop == true) {
+    timer=window.setTimeout('do_show()', 1000);
+    return;
+  }
+  if (seconds_left==0) {
+    if (current_image == slides.length-1) {
+      switch(beenden) {
+        case "802":
+          current_image = 0;
+          break;
+        case "803":
+          window.setTimeout('window.close()', 6000);
+          return;
+        default:
+          doStop();
+          break;
+      }
+    } else {
+      current_image++;
+    }
+    showCurrentImage(true);
+    seconds_left=show_seconds;
+  } else {
+    seconds_left--;
+  }
+  timer=window.setTimeout('do_show()', 1000);
+  return true;
+}
+
+
+function onPpause() {
+
+  if (plapau) {
+    doStop();
+  } else {
+    document.plapau.src="images/pause.gif";
+    plapau = true;
+    stop=false;
+  }
+
+}
+      
+function doStop() {
+  document.plapau.src="images/start.gif";
+  stop = true;
+  plapau = false;
+}
+  
+function onRewind() {
+  
+  doStop();
+  current_image = 0;
+  showCurrentImage(false);
+  
+}
+
+function onStepBack() {
+
+  doStop();
+  if (current_image != 0) {
+    current_image--;
+  }
+  showCurrentImage(false);
+
+}
+
+function onStepForward() {
+
+  doStop();
+  if (current_image < slides.length-1) {
+    current_image++;
+  }
+  showCurrentImage(false);
+
+}
+
+function onFwd() {
+
+  doStop();
+  current_image = slides.length-1;
+  showCurrentImage(false);
+
+}
+
+
+
+    </script>
+</head>
+
+  <body onload="init();" bgcolor="#F2FCF3" text="#000000">
+    <center><div id="canvas0" style="width:800; height:600;">
+    <table width="800" border="0" cellspacing="0" cellpadding="0" align="center">
+	  <tr>
+	    <td colspan="3" align="center" valign="top" id="ueberschrift" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt;">&nbsp;</td>
+	  </tr>
+	  <tr width="800" height="600">
+	    <td colspan="3" valign="middle" align="center"><img src="images/i.gif" id="bild1" style="filter:progid:DXImageTransform.Microsoft.Checkerboard(Duration=1)"></td>
+	  </tr>
+	  <tr>
+	    <td colspan="3" align="center" valign="top" id="unterschrift" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt;">&nbsp;</td>
+	  </tr>
+	  <tr height="10"><td height="10" colspan="3"><img src="images/i.gif" height="10" width="1"/></td></tr>
+	  <tr>
+	    <td width="50" id="zaehler" valign="top" align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 10pt;">&nbsp;</td>
+	    <td width="600" align="center" valign="top">
+		<img onclick="onRewind()" style="cursor: pointer;" src="images/rewind.gif">
+		<img onclick="onStepBack()" style="cursor: pointer;" src="images/step_back.gif">
+		<img onclick="onPpause()" id="plapau" name="plapau" style="cursor: pointer;" src="images/start.gif">
+		<img onclick="onStepForward()" style="cursor: pointer;" src="images/step_fwd.gif">
+		<img onclick="onFwd()" style="cursor: pointer;" src="images/fwd.gif"></td>
+	    <td align="right" width="150" valign="top"><img onclick="window.close()" align="right" style="cursor: pointer;" src="images/schliessen.gif"></td>
+	  </tr>
+      </table>
+      </div></center>
+
+      <div id="canvas1" 
+          style="width:800; height:600; position:absolute; left:0; top:0; z-index:1; visibility:hidden;">
+      <img id="bild2" width="0" height="0" src="images/i.gif">
+    </div>
+  </body>
+</html>
