@@ -62,8 +62,7 @@ document.write("</li>")
 
 document.write("<li><a href=\"fotoalbum.html\" target=\"_self\">Foto's + Album 55 Jaar </a></li>")
 document.write("<li><a href=\"videoalbum.html\" target=\"_self\">Video Album 55 Jaar </a></li>")
-
-
+document.write("<li><a href=\"feestvideos.html\" target=\"_self\">Feestvideo's </a></li>")
 document.write("<li><a href=\"#\">Mededelingen</a>")
 document.write("  <ul>")
 document.write("  <li><a href=\"mededelingen_overlijdensbericht.html\" target=\"_self\">Overlijdensbericht</a></li>")
